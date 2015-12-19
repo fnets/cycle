@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>What the fuck should I watch tonight?</div>
+    <div>You should watch {{ entry.name }}!</div>
+    <div>Released in {{ entry.release_year }}, {{ entry.name }} was directed by {{ entry.director }} and stars
+    {% for star in entry.stars %}
+        {% if loop.last %}and {% endif %}{{ star }}{% if loop.last %}.{% else %},{% endif %}
+    {% endfor %}
+    </div>
+    <div>I don't want to watch this!</div>
+{% endblock %}
