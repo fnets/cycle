@@ -1,2 +1,6 @@
+*.pyc
+*.pyo
 venv/*
 .idea/*
+app/db_repository/*
+app/app.db
