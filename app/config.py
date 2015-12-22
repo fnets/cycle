@@ -1,15 +1,8 @@
-entries = []
+import os
 
-entries.append({"name": "Citizen Kane", "director": "Orson Welles", "release_year": 1941, "stars": ["Orson Welles",
-                "Joseph Cotten",
-                "Dorothy Comingore",
-                "Everett Sloane",
-                "Ray Collins",
-                "George Coulouris",
-                "Agnes Moorehead",
-                "Paul Stewart",
-                "Ruth Warrick",
-                "Erskine Sanford",
-                "William Alland",]})
+basedir = os.path.abspath(os.path.dirname(__file__))
 
-entries.append({"name": "Star Wars", "director": "George Lucas", "release_year": 1977, "stars": ["Mark Hamill", "Harrison Ford", "Carrie Fisher", "Peter Cushing", "Alec Guinness"]})
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
+
+app_name = "What should I watch tonight?"

@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Fri Dec 18 13:09:32 2015
-
-@author: mshirley
-"""
 
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config.from_object('app.config')
+db = SQLAlchemy(app)
 
-from app import views
+from app import views, models

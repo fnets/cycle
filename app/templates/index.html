@@ -1,11 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
-    <div>What the fuck should I watch tonight?</div>
-    <div>You should watch {{ entry.name }}!</div>
-    <div>Released in {{ entry.release_year }}, {{ entry.name }} was directed by {{ entry.director }} and stars
-    {% for star in entry.stars %}
-        {% if loop.last %}and {% endif %}{{ star }}{% if loop.last %}.{% else %},{% endif %}
-    {% endfor %}
+    <div class="question"><h1>{{ title }}</h1></div>
+    <div class="answer"><h2>You should watch {{ entry.name }}!</h2></div>
+    <div class="explanation">Released in {{ entry.release_year }}, {{ entry.name }} was directed by {{ entry.director }} and stars
+    {% if entry.stars|length == 1 %}
+        {% for star in entry.stars %}
+            {{ star.name }}
+        {% endfor %}
+    {% else %}
+        {% for star in entry.stars %}
+            {% if loop.last %}and {% endif %}{{ star.name }}{% if loop.last %}.{% else %},{% endif %}
+        {% endfor %}
+    {% endif %}
     </div>
-    <div>I don't want to watch this!</div>
+    <div class="whatelse"><a href="/">I want to watch something else!</a></div>
+    <div class="whatelse">I want to watch a classic!</div>
+    <div class="whatelse">I want to watch something at the theater!</div>
 {% endblock %}
